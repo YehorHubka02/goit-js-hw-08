@@ -84,7 +84,7 @@ const galleryMarkup = images
   )
   .join("");
 
-gallery.innerHTML = galleryMarkup;
+gallery.insertAdjacentHTML("afterbegin",galleryMarkup);
 
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
@@ -94,7 +94,7 @@ gallery.addEventListener("click", (event) => {
   if (clickedImage.classList.contains("gallery-image")) {
     const largeImageURL = clickedImage.dataset.source;
 
-    console.log("Відкриваємо зображення:", largeImageURL);
+    console.log("open-modal", largeImageURL);
 
     const instance = basicLightbox.create(`
       <img src="${largeImageURL}" alt="${clickedImage.alt}" class="basicLightbox__img">
